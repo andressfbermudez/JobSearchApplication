@@ -25,8 +25,7 @@ public record Job(
         @SerializedName("candidate_required_location")
         String candidateRequiredLocation,
 
-        String salary,
-        String description
+        String salary
 ) {
     @Override
     public String toString() {
@@ -39,7 +38,6 @@ public record Job(
                 "\nJob Type: " + jobType +
                 "\nPublication Date: " + publicationDate +
                 "\nCandidate Required Location: " + candidateRequiredLocation +
-                "\nSalary: " + salary +
-                "\nDescription: " + description;
+                "\nSalary: " + salary;
     }
 }

@@ -17,8 +17,8 @@ import java.net.http.HttpResponse;
 
 public class JobSearchRequest {
 
-    public static List<Job> submitSearch(String job) {
-        String url = "https://remotive.com/api/remote-jobs?search=" + urlFormatter(job);
+    public static List<Job> search() {
+        String url = "https://remotive.com/api/remote-jobs?search=software%20engineer";
 
         try {
             HttpClient client = HttpClient.newHttpClient();
@@ -44,15 +44,9 @@ public class JobSearchRequest {
             return gson.fromJson(jobsArray, jobsList);
 
         } catch (Exception e) {
+            System.out.println("Failed to get data from API");
             e.printStackTrace();
             return null;
         }
-    }
-
-    private static String urlFormatter(String job) {
-        if (job.contains(" ")) {
-            return job.replace(" ", "%20");
-        }
-        return job;
     }
 }
